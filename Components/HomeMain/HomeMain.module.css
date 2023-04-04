@@ -1,0 +1,48 @@
+.homecontent {
+	position: relative;
+	z-index: 2;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.container2 {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.fillter_bg {
+	background: radial-gradient(
+		34.98% 34.98% at 50% 50%,
+		#3103ff 0,
+		rgba(6, 19, 45, 0) 100%
+	);
+	height: 1500px;
+	opacity: 0.3;
+	position: absolute;
+	left: -650px;
+	top: 0px;
+	width: 1500px;
+	z-index: 1;
+	background-clip: content-box;
+}
+
+.fillter_bg2 {
+	background: radial-gradient(
+		34.98% 34.98% at 50% 50%,
+		#2f00ff 0,
+		rgba(6, 19, 45, 0) 100%
+	);
+	height: 1500px;
+	opacity: 0.5;
+	position: absolute;
+	right: -600px;
+	top: -600px;
+	width: 1500px;
+	z-index: 0;
+	background-clip: content-box;
+}

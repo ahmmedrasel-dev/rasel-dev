@@ -1,0 +1,24 @@
+.typeAnimation {
+	overflow: hidden;
+	white-space: nowrap;
+	letter-spacing: 0.1em;
+}
+
+.cursor {
+	display: inline-block;
+	vertical-align: middle;
+	width: 0.12em;
+	height: 2.5rem;
+	background-color: var(--pure);
+	animation: blink-caret 0.1s step-end infinite;
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: #fbf8f8;
+	}
+}

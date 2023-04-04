@@ -1,0 +1,55 @@
+@media only screen and (min-width: 1170px) {
+	.sideMenu {
+		position: fixed;
+		margin-right: 20px;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.active {
+		background-color: #037fff;
+	}
+
+	.sideMenu ul li {
+		margin: 20px 0;
+	}
+
+	.sideMenu ul li h2 {
+		display: none;
+		position: absolute;
+		right: 32px;
+		text-transform: uppercase;
+		transition: all 0.3s ease;
+		z-index: -1;
+		background-color: #037fff;
+		padding: 16px 30px;
+		border-radius: 30px 0 0 30px;
+	}
+
+	.sideMenu ul li a:hover h2 {
+		display: block;
+	}
+
+	.sideMenu ul li a:hover a {
+		background-color: #037fff;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.sideMenu {
+		width: 100%;
+		position: fixed;
+		bottom: 0px;
+		left: 0px;
+		background-color: #fff;
+		padding: 10px 0px;
+	}
+	.menuItem {
+		display: flex;
+		justify-content: space-evenly;
+	}
+	.sideMenu ul li h2 {
+		display: none;
+	}
+}
