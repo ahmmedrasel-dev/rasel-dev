@@ -36,7 +36,7 @@ const TypeAnimation = () => {
   }, [text, isDeleting, textIndex]);
 
   return (
-    <h1 className={`styles.typeAnimation text-4xl text-white uppercase`}> {text} < span className={styles.cursor} ></span ></h1 >
+    <h1 className={`styles.typeAnimation lg:text-4xl text-xl text-white uppercase text-center lg:text-left`}> {text} < span className={styles.cursor} ></span ></h1 >
   );
 };
 
