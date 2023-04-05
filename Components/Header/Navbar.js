@@ -1,6 +1,23 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-const Navbar = ({ children }) => {
+
+const Navbar = ({ children, user }) => {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      // remove the access token from local storage
+      localStorage.removeItem("access_token");
+      // set the user state to null
+      logout();
+      // redirect to the home page
+      router.push("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <div className="drawer drawer-end">
@@ -23,6 +40,14 @@ const Navbar = ({ children }) => {
                 <li><Link href={'/projects'}>Projects</Link></li>
                 <li><Link href={'/blogs'}>Blogs</Link></li>
                 <li><Link href={'/contact'}>Contact</Link></li>
+                {
+                  user && (
+                    <>
+                      <li><Link href={'/contact'}>{user.name}</Link></li>
+                      <li><button onClick={handleLogout}>Logout</button></li>
+                    </>
+                  )
+                }
               </ul>
             </div>
           </div>

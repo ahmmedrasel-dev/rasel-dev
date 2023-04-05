@@ -1,11 +1,6 @@
 import User from '../../models/user';
 import bcrypt from 'bcrypt';
 
-// mongoose.connect(`${process.env.MONGODB_URL}`)
-//   .then(() => console.log('Connected to MongoDB'))
-//   .catch(error => console.error(error));
-
-
 export default async function register(req, res) {
 
   try {

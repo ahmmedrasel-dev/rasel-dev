@@ -24,9 +24,11 @@ const login = () => {
       const response = await axios.post('http://localhost:3000/api/login', {
         email, password
       })
-
+      console.log(response)
       if (response.status === 200) {
         toast.success(response.data.message);
+        localStorage.setItem('access_token', response.data.accessToken)
+        localStorage.setItem('refresh_token', response.data.refreshToken)
         form.reset();
         router.push('http://localhost:3000')
       }
