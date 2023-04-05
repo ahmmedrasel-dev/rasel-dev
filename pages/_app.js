@@ -24,10 +24,6 @@ export default function App({ Component, pageProps }) {
     }
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('access_token');
-    router.push('/login');
-  }
 
   return (
     <>
