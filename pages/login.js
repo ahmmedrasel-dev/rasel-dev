@@ -2,8 +2,40 @@ import React from 'react';
 import styles from '../Components/HomeMain/HomeMain.module.css'
 import Head from 'next/head';
 import Link from 'next/link';
+import { toast } from 'react-hot-toast';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const login = () => {
+  const router = useRouter();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // Check if email and password are provided
+    if (!email || !password) {
+      toast.error('Please provide email and password');
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:3000/api/login', {
+        email, password
+      })
+
+      if (response.status === 200) {
+        toast.success(response.data.message);
+        form.reset();
+        router.push('http://localhost:3000')
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+
+  }
   return (
     <>
       <Head>
@@ -22,7 +54,7 @@ const login = () => {
           <div className="hero py-8 relative z-50">
             <div className="hero-content flex-col">
               <div className="card shadow-2xl bg-neutral border-2">
-                <form className="card-body p-4 lg:p-8 lg:w-[500px] w-full">
+                <form onSubmit={handleSubmit} className="card-body p-4 lg:p-8 lg:w-[500px] w-full">
                   <div className="form-control">
                     <label className="label">
                       <h1 className='lg:text-3xl text-lg font-bold text-white'>Welcome Back</h1>
