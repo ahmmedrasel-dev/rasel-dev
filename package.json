@@ -1,7 +1,6 @@
 {
 	"name": "rasel-dev",
 	"version": "0.1.0",
-	"type": "module",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -30,7 +29,8 @@
 		"react-dom": "18.2.0",
 		"react-hot-toast": "^2.4.0",
 		"react-icons": "^4.8.0",
-		"react-lottie": "^1.2.3"
+		"react-lottie": "^1.2.3",
+		"typewriter-effect": "^2.19.0"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.14",

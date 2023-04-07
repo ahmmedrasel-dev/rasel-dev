@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from '../Components/HomeMain/HomeMain.module.css'
 import Head from 'next/head';
 import Link from 'next/link';
 import { toast } from 'react-hot-toast';
-import axios from 'axios';
 import { useRouter } from 'next/router';
+import { AuthContext } from "@/context/authContext";
 
 const login = () => {
-  const router = useRouter();
+  const router = useRouter()
+  const { login, isAuthenticated } = useContext(AuthContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,23 +23,18 @@ const login = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/api/login', {
-        email, password
-      })
-      console.log(response)
+      const response = await login(email, password);
       if (response.status === 200) {
-        toast.success(response.data.message);
-        localStorage.setItem('access_token', response.data.accessToken)
-        localStorage.setItem('refresh_token', response.data.refreshToken)
-        form.reset();
-        router.push('http://localhost:3000')
+        router.push('/');
+        toast.success('Login Successfully!');
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response.data.message)
     }
 
-
   }
+
+
   return (
     <>
       <Head>

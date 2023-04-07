@@ -1,29 +1,34 @@
-import Head from 'next/head'
-import HomeMain from '../Components/HomeMain/HomeMain'
+import Head from 'next/head';
+import React from 'react';
 import styles from '../Components/HomeMain/HomeMain.module.css'
+import AboutMain from '@/Components/About/AboutMain';
 
-export default function Home() {
-
+const about = () => {
   return (
     <>
       <Head>
-        <title>Rasel Ahmmed</title>
+        <title>About-Rasel Ahmmed</title>
         <meta name="description" content="Exparties Software Developer" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='lg:h-[100vh] lg:overflow-hidden overflow-scroll'>
+
+      <main className=''>
         <div className='lg:max-w-screen-xl w-full p-4 mx-auto'>
           <div className={`${styles.container}`}>
             <div className={`${styles.fillter_bg}`}></div>
           </div>
-          <HomeMain />
+
+          <AboutMain></AboutMain>
           <div className={`${styles.container2}`}>
             <div className={`${styles.fillter_bg2}`}></div>
           </div>
         </div>
 
       </main>
+
     </>
-  )
-}
+  );
+};
+
+export default about;

@@ -1,9 +1,11 @@
+import connectDB from '@/middleware/mongoose';
 import User from '../../models/user';
 import bcrypt from 'bcrypt';
 
 export default async function register(req, res) {
 
   try {
+    await connectDB();
     const { name, email, password } = req.body;
     // Check if user with the same email already exists
     const existingUser = await User.findOne({ email }, { timeout: 30000 });

@@ -1,23 +1,9 @@
+import { AuthContext } from "@/context/authContext";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useContext } from "react";
 
-
-const Navbar = ({ children, user }) => {
-  const router = useRouter();
-
-  const handleLogout = async () => {
-    try {
-      // remove the access token from local storage
-      localStorage.removeItem("access_token");
-      // set the user state to null
-      logout();
-      // redirect to the home page
-      router.push("/");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+const Navbar = ({ children }) => {
+  const { user, logout } = useContext(AuthContext);
   return (
     <div>
       <div className="drawer drawer-end">
@@ -28,43 +14,81 @@ const Navbar = ({ children, user }) => {
             <div className="flex-1 px-2 mx-2">Rasel Dev</div>
             <div className="flex-none lg:hidden">
               <label htmlFor="mobaile-nav" className="btn btn-square btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-6 h-6 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
               </label>
             </div>
 
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal">
                 {/* <!-- Navbar menu content here --> */}
-                <li><Link href={'/'}>Home</Link></li>
-                <li><Link href={'/about'}>About</Link></li>
-                <li><Link href={'/projects'}>Projects</Link></li>
-                <li><Link href={'/blogs'}>Blogs</Link></li>
-                <li><Link href={'/contact'}>Contact</Link></li>
-                {
-                  user && (
-                    <>
-                      <li><Link href={'/contact'}>{user.name}</Link></li>
-                      <li><button onClick={handleLogout}>Logout</button></li>
-                    </>
-                  )
-                }
+                <li>
+                  <Link href={"/"}>Home</Link>
+                </li>
+                <li>
+                  <Link href={"/about"}>About</Link>
+                </li>
+                <li>
+                  <Link href={"/projects"}>Projects</Link>
+                </li>
+                <li>
+                  <Link href={"/blogs"}>Blogs</Link>
+                </li>
+                <li>
+                  <Link href={"/contact"}>Contact</Link>
+                </li>
               </ul>
             </div>
+
+            <div className="flex-none">
+              {user ? (
+                <>
+                  <div className="px-2 mx-2">{user.name}</div>
+                  <button onClick={logout}>Logout</button>
+                </>
+              ) : (
+                <div className="px-2 mx-2">
+                  <Link href={"/login"}>Login</Link>
+                </div>
+              )}
+            </div>
           </div>
+
           {/* <!-- Page content here --> */}
           {children}
         </div>
+
         <div className="drawer-side">
           <label htmlFor="mobaile-nav" className="drawer-overlay"></label>
           <ul className="menu p-4 lg:w-80 w-[80%] bg-neutral">
             {/* <!-- Sidebar content here --> */}
-            <li><a>Home</a></li>
-            <li><a>About</a></li>
-            <li><a>Projects</a></li>
-            <li><a>Blog</a></li>
-            <li><a>Contact</a></li>
+            <li>
+              <Link href={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link href={"/about"}>About</Link>
+            </li>
+            <li>
+              <Link href={"/projects"}>Projects</Link>
+            </li>
+            <li>
+              <Link href={"/blogs"}>Blogs</Link>
+            </li>
+            <li>
+              <Link href={"/contact"}>Contact</Link>
+            </li>
           </ul>
-
         </div>
       </div>
     </div>

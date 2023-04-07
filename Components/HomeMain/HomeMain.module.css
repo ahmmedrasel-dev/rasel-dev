@@ -43,7 +43,7 @@
 	right: -698px;
 	top: -1284px;
 	width: 1500px;
-	z-index: 0;
+	z-index: -1;
 	background-clip: content-box;
 }
 
