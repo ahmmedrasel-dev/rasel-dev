@@ -30,6 +30,7 @@
 		"react-hot-toast": "^2.4.0",
 		"react-icons": "^4.8.0",
 		"react-lottie": "^1.2.3",
+		"react-reveal": "^1.2.2",
 		"typewriter-effect": "^2.19.0"
 	},
 	"devDependencies": {

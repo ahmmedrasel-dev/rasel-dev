@@ -5,7 +5,6 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from '@/context/authContext';
 
 export default function App({ Component, pageProps }) {
-
   return (
     <>
       <AuthProvider>

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import styles from '../Components/HomeMain/HomeMain.module.css'
+import styles from '../Components/About/about.module.css'
 import AboutMain from '@/Components/About/AboutMain';
 
 const about = () => {
@@ -16,15 +16,18 @@ const about = () => {
       <main className=''>
         <div className='lg:max-w-screen-xl w-full p-4 mx-auto'>
           <div className={`${styles.container}`}>
-            <div className={`${styles.fillter_bg}`}></div>
+            <div className={`${styles.about_bg_blur}`}></div>
           </div>
 
           <AboutMain></AboutMain>
           <div className={`${styles.container2}`}>
-            <div className={`${styles.fillter_bg2}`}></div>
+            <div className={`${styles.about_bg_blur2}`}></div>
+          </div>
+
+          <div className={`${styles.container2}`}>
+            <div className={`${styles.about_bg_blur3}`}></div>
           </div>
         </div>
-
       </main>
 
     </>
