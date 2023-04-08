@@ -1,13 +1,13 @@
+import ProjectMain from '@/Components/Projects/ProjectMain';
 import Head from 'next/head';
 import React from 'react';
 import styles from '../Components/About/about.module.css'
-import AboutMain from '@/Components/About/AboutMain';
 
-const about = () => {
+const project = () => {
   return (
     <>
       <Head>
-        <title>About-Rasel Ahmmed</title>
+        <title>Projects Rasel Ahmmed</title>
         <meta name="description" content="Exparties Software Developer" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -21,7 +21,8 @@ const about = () => {
               <div className={`${styles.about_bg_blur}`}></div>
             </div>
 
-            <AboutMain></AboutMain>
+            <ProjectMain></ProjectMain>
+
             <div className={`${styles.container}`}>
               <div className={`${styles.about_bg_blur2}`}></div>
             </div>
@@ -32,9 +33,8 @@ const about = () => {
           </div>
         </div>
       </main>
-
     </>
   );
 };
 
-export default about;
+export default project;

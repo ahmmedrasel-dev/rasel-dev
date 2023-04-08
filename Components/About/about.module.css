@@ -20,12 +20,6 @@
 	position: relative;
 }
 
-.container2 {
-	width: 100%;
-	height: 100%;
-	position: relative;
-}
-
 .about_bg_blur {
 	background: radial-gradient(
 		34.98% 34.98% at 50% 50%,
@@ -38,7 +32,7 @@
 	left: -650px;
 	top: 0px;
 	width: 1500px;
-	z-index: 1;
+	z-index: 0;
 	background-clip: content-box;
 }
 
@@ -52,7 +46,7 @@
 	opacity: 0.5;
 	position: absolute;
 	right: -698px;
-	top: -1835px;
+	top: -2235px;
 	width: 1500px;
 	z-index: -1;
 	background-clip: content-box;
@@ -71,5 +65,4 @@
 	top: -1000px;
 	width: 1500px;
 	z-index: -1;
-	background-clip: content-box;
 }

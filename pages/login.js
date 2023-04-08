@@ -25,7 +25,7 @@ const login = () => {
     try {
       const response = await login(email, password);
       if (response.status === 200) {
-        router.push('/');
+        router.push(router.query.redirect || '/');
         toast.success('Login Successfully!');
       }
     } catch (error) {
