@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { createContext, useState } from "react";
-import { toast } from "react-hot-toast";
+import { createContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
@@ -18,6 +17,8 @@ const AuthProvider = ({ children }) => {
       if (response.status === 200) {
         setUser(response.data.user);
         setAccessToken(response.data.accessToken);
+        localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
         return response;
       }
     } catch (error) {
@@ -25,16 +26,26 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
   const logout = async () => {
     setUser(null);
     setAccessToken(null);
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('user');
     router.push('/');
   };
 
   const isAuthenticated = () => {
     return !!accessToken;
   };
+
+  useEffect(() => {
+    const storedAccessToken = localStorage.getItem('accessToken');
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedAccessToken && storedUser) {
+      setAccessToken(storedAccessToken);
+      setUser(storedUser);
+    }
+  }, []);
 
   const authContextValue = {
     user,

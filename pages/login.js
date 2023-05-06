@@ -8,7 +8,7 @@ import { AuthContext } from "@/context/authContext";
 
 const login = () => {
   const router = useRouter()
-  const { login, isAuthenticated } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const login = () => {
     try {
       const response = await login(email, password);
       if (response.status === 200) {
-        router.push(router.query.redirect || '/');
+        router.push(router.query.redirect || '/dashboard');
         toast.success('Login Successfully!');
       }
     } catch (error) {

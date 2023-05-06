@@ -4,6 +4,8 @@ import { useContext } from "react";
 
 const Navbar = ({ children }) => {
   const { user, logout } = useContext(AuthContext);
+
+  console.log(user);
   return (
     <div>
       <div className="drawer drawer-end">
@@ -58,7 +60,7 @@ const Navbar = ({ children }) => {
                   <Link href={"/projects"}>Projects</Link>
                 </li>
                 <li>
-                  <Link href={"/blogs"}>Blogs</Link>
+                  <Link href={"/blog"}>Blogs</Link>
                 </li>
                 <li>
                   <Link href={"/contact"}>Contact</Link>
